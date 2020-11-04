@@ -9,6 +9,14 @@ class Canvas {
     Canvas.canvas = document.body.appendChild(Canvas.canvas);
   }
 
+  static fill() {
+    var context = Canvas.canvas.getContext("2d");
+    context.beginPath();
+    context.rect(0, 0, Canvas.canvas.width, Canvas.canvas.height);
+    context.fillStyle = "black";
+    context.fill();
+  }
+
 }
 
 new Canvas();
