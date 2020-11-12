@@ -71,4 +71,15 @@ class Nut {
     );
   }
 
+  static removeClicked(mousePos) {
+    let notClicked = [];
+
+    for (let nut of Nut.nuts) {
+      if(Utility.distance(nut.position, mousePos) > nut.radius)
+        notClicked.push(nut);
+    }
+
+    Nut.nuts = notClicked;
+  }
+
 }

@@ -19,4 +19,12 @@ class Utility {
     + Utility.randomInt(min, max) + ")"; // blue
   }
 
+  static distance (aPos, bPos) {
+    return Math.sqrt(
+      Math.pow((aPos.x - bPos.x), 2)
+      +
+      Math.pow((aPos.y - bPos.y), 2)
+    );
+  }
+
 }
