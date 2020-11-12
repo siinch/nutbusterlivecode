@@ -4,7 +4,8 @@ class Mouse {
     Canvas.canvas.addEventListener('mousedown', function(evt) {
         var mousePos = Mouse.getMousePos(evt);
         console.log(mousePos);
-        Nut.removeClicked(mousePos);
+        if(Nut.nuts.length < 10)
+          Nut.removeClicked(mousePos);
       }, false);
   }
 

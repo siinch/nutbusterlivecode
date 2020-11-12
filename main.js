@@ -5,8 +5,10 @@ new Mouse();
 
 // make the game loop
 function gameloop () {
-  Canvas.fill();
-  Nut.behave();
-  Score.update();
+  if(Nut.nuts.length < 10 ) {
+    Canvas.fill();
+    Nut.behave();
+    Score.update();
+  }
 }
 setInterval(gameloop, Canvas.refreshRate);

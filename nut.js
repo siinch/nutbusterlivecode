@@ -11,7 +11,7 @@ class Nut {
     this.speed = speedIn;
     this.radius = radiusIn;
     this.color = colorIn;
-    this.points = Math.ceil(((Math.abs(speedIn.x) + Math.abs(speedIn.y)) * 100) / radiusIn) ;
+    this.points = Math.ceil(((Math.abs(speedIn.x) + Math.abs(speedIn.y)) * Score.modifier) / radiusIn) ;
     Nut.nuts.push(this);
   }
 
@@ -58,6 +58,7 @@ class Nut {
     }
 
     Nut.createNewTimer += Canvas.refreshRate;
+    Nut.createNewInterval = 1500 * (Math.pow(1.06, -0.01*Score.score)) + 500;
 
   }
 
