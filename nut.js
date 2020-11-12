@@ -11,6 +11,7 @@ class Nut {
     this.speed = speedIn;
     this.radius = radiusIn;
     this.color = colorIn;
+    this.points = Math.ceil(((Math.abs(speedIn.x) + Math.abs(speedIn.y)) * 100) / radiusIn) ;
     Nut.nuts.push(this);
   }
 
@@ -75,8 +76,12 @@ class Nut {
     let notClicked = [];
 
     for (let nut of Nut.nuts) {
-      if(Utility.distance(nut.position, mousePos) > nut.radius)
+      if(Utility.distance(nut.position, mousePos) > nut.radius) {
         notClicked.push(nut);
+      }
+      else {
+        Score.score += nut.points;
+      }
     }
 
     Nut.nuts = notClicked;
