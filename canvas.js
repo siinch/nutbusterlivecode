@@ -1,10 +1,13 @@
 class Canvas {
 
   static canvas = document.createElement("canvas");
+  static refreshRate = 12;
+  static width = 800;
+  static height = 400;
 
   constructor () {
-    Canvas.canvas.height = 400;
-    Canvas.canvas.width = 800;
+    Canvas.canvas.height = Canvas.height;
+    Canvas.canvas.width = Canvas.width;
     Canvas.canvas.style.border = "5px solid gray";
     Canvas.canvas = document.body.appendChild(Canvas.canvas);
   }

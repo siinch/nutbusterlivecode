@@ -1,10 +1,15 @@
 class Nut {
 
+  static nuts = [];
+  static createNewInterval = 5000;
+  static createNewTimer = 0;
+
   constructor (positionIn, speedIn, radiusIn, colorIn) {
     this.position = positionIn;
     this.speed = speedIn;
     this.radius = radiusIn;
     this.color = colorIn;
+    Nut.nuts.push(this);
   }
 
   draw () {
@@ -36,6 +41,34 @@ class Nut {
       this.position.y - this.radius < 0
     )
     this.speed.y *= -1;
+  }
+
+  static behave() {
+    for (let nut of Nut.nuts) {
+      nut.draw();
+      nut.move();
+    }
+
+    if (Nut.createNewInterval < Nut.createNewTimer) {
+      Nut.createNewTimer = 0;
+      Nut.createRandom();
+    }
+
+    Nut.createNewTimer += Canvas.refreshRate;
+
+  }
+
+  static createRandom() {
+    new Nut(
+      {x: Utility.randomInt(10, Canvas.width-10),
+        y: Utility.randomInt(10, Canvas.height-10)}, // position
+      {x: Utility.randomFloat(-3, 3), y: Utility.randomFloat(-3, 3)}, // speed
+      Utility.randomInt(15, 40), // radius
+      "rgb("
+      + Utility.randomInt(100, 255) + "," // red
+      + Utility.randomInt(100, 255) + "," // green
+      + Utility.randomInt(100, 255) + ")" // blue
+    );
   }
 
 }
