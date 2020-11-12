@@ -3,6 +3,8 @@ class Nut {
   static nuts = [];
   static createNewInterval = 5000;
   static createNewTimer = 0;
+  static maxRadius = 40;
+  static minRadius = 15;
 
   constructor (positionIn, speedIn, radiusIn, colorIn) {
     this.position = positionIn;
@@ -59,15 +61,13 @@ class Nut {
   }
 
   static createRandom() {
+    let offset = Nut.maxRadius + 5;
     new Nut(
-      {x: Utility.randomInt(10, Canvas.width-10),
-        y: Utility.randomInt(10, Canvas.height-10)}, // position
+      {x: Utility.randomInt(offset, Canvas.width-offset),
+        y: Utility.randomInt(offset, Canvas.height-offset)}, // position
       {x: Utility.randomFloat(-3, 3), y: Utility.randomFloat(-3, 3)}, // speed
-      Utility.randomInt(15, 40), // radius
-      "rgb("
-      + Utility.randomInt(100, 255) + "," // red
-      + Utility.randomInt(100, 255) + "," // green
-      + Utility.randomInt(100, 255) + ")" // blue
+      Utility.randomInt(Nut.minRadius, Nut.maxRadius), // radius
+      Utility.randomColor(50, 255)
     );
   }
 
