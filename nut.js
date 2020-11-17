@@ -89,3 +89,5 @@ class Nut {
   }
 
 }
+
+Subject.mousedown.register(Nut.removeClicked);

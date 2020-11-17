@@ -3,9 +3,8 @@ class Mouse {
   constructor () {
     Canvas.canvas.addEventListener('mousedown', function(evt) {
         var mousePos = Mouse.getMousePos(evt);
-        console.log(mousePos);
-        if(Nut.nuts.length < 10)
-          Nut.removeClicked(mousePos);
+        //console.log(mousePos);
+        Subject.mousedown.notify(mousePos);
       }, false);
   }
 
