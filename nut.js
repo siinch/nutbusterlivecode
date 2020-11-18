@@ -82,7 +82,8 @@ class Nut {
       }
       else {
         Score.score += nut.points;
-        new Audio("assets/blib.mp3").play();
+
+        new Audio("assets/laser" + Utility.randomInt(1, 3) + ".mp3").play();
       }
     }
 
