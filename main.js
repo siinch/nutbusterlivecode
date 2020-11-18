@@ -1,5 +1,8 @@
 console.log("Hello from main");
 new Score();
+new Button("Submit", Score.submit);
+new Button("Reload", Utility.reload);
+document.write("<br>");
 new Canvas(); // initialize the canvas
 new Scoreboard();
 
@@ -10,8 +13,7 @@ function gameloop () {
     Nut.behave();
     Score.update();
   }
-
-  if(Nut.nuts.length > 9 ) {
+  else {
     Subject.mousedown.unregister(Nut.removeClicked);
   }
 }

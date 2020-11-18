@@ -27,4 +27,8 @@ class Utility {
     );
   }
 
+  static reload () {
+    setTimeout("location.reload(true);", 1000);
+  }
+
 }

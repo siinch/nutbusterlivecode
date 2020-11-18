@@ -14,4 +14,15 @@ class Score {
       Score.display.innerHTML = Score.text + Score.score;
   }
 
+  static submit () {
+    let url ="http://localhost:3001";
+    fetch(url + "/insert/" + prompt("Name") + "/" + Score.score)
+    .then(response => response.json())
+    .then(data => {
+      alert("Inserted highscore" + JSON.stringify(data));
+      Utility.reload();
+    }
+    );
+  }
+
 }
