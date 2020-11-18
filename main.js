@@ -1,7 +1,7 @@
 console.log("Hello from main");
 new Score();
 new Canvas(); // initialize the canvas
-new Mouse();
+new Scoreboard();
 
 // make the game loop
 function gameloop () {
@@ -16,9 +16,3 @@ function gameloop () {
   }
 }
 setInterval(gameloop, Canvas.refreshRate);
-
-function onMouseDown(mousePos){
-  console.log(mousePos);
-}
-
-Subject.mousedown.register(onMouseDown);
