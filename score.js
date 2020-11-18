@@ -20,7 +20,6 @@ class Score {
     .then(response => response.json())
     .then(data => {
       alert("Inserted highscore" + JSON.stringify(data));
-      Utility.reload();
     }
     );
   }
