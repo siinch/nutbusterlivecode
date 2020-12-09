@@ -11,6 +11,13 @@ class Nut {
     this.speed = speedIn;
     this.radius = radiusIn;
     this.color = colorIn;
+    this.image = new Image();
+    try {
+      this.image.src = "assets/virus.png";
+    }
+    catch (e) {
+      //console.log(e);
+    }
     this.points = Math.ceil(((Math.abs(speedIn.x) + Math.abs(speedIn.y)) * Score.modifier) / radiusIn) ;
     Nut.nuts.push(this);
   }
@@ -26,6 +33,14 @@ class Nut {
     );
     context.fillStyle = this.color;
     context.fill();
+
+    try {
+      let context2 = Canvas.canvas.getContext("2d");
+      context2.drawImage(this.image, this.position.x -this.radius, this.position.y-this.radius, this.radius * 2, this.radius * 2);
+    }
+    catch (e) {
+      //console.log(e);
+    }
   }
 
   move () {
